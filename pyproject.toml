@@ -1,0 +1,11 @@
+[project]
+name = "dilemma-scraper"
+version = "0.1.0"
+description = "A selenium based scraper to extract Dilemmas from the DR podcast 'Sara & Monopolet'"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "bs4>=0.0.2",
+    "requests>=2.32.3",
+    "selenium>=4.25.0",
+]

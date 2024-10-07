@@ -1,0 +1,12 @@
+## output files to ignore
+*.html
+*.json
+*.txt
+*.csv
+*.zip
+
+## python things
+.venv/
+__pycache__/
+.python-version
+
