@@ -27,9 +27,9 @@ BUTTONS_TO_PUSH: list[str] = [
     "2024",
 ]  # ordered based on scrape logic, adjust accordingly
 URL: str = "https://www.dr.dk/lyd/p4/sara-og-monopolet-podcast-1090358387000"
-HTMLS_FOLDER: str = "/home/luisito/Development/dilemma_scraper/html_dumps/"
-DATA_FOLDER: str = "/home/luisito/Development/dilemma_scraper/output_data/"
-FILE_FORMAT: str = "csv"
+HTMLS_FOLDER: str = "" #add the path to where the program will save the HTML
+DATA_FOLDER: str = "" #add the path to where the program will save the processed data
+FILE_FORMAT: str = "csv" #change to desired object #TODO: change into CLI argument for template
 
 
 def scrape_htmls(url: str, button: str, output_folder: str) -> None:
@@ -37,6 +37,8 @@ def scrape_htmls(url: str, button: str, output_folder: str) -> None:
     This function structures the logic of the scrape
     """
     driver = scraper_init()
+
+    #TODO: add line that creates folder for HTML dumps
 
     try:
         navigator(driver, url)
@@ -93,6 +95,9 @@ if __name__ == "__main__":
         full_file_path = os.path.join(HTMLS_FOLDER, filename)
         print(f"Processing {full_file_path}")
         dilemma_list = process_html(full_file_path)
+
+        #add line to create folder in case it doesn't exist
+
         save_dilemmas(
             dilemma_list, FILE_FORMAT, DATA_FOLDER, f"dilemmas_{filename}.{FILE_FORMAT}"
         )
